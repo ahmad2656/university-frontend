@@ -5,7 +5,7 @@ import axios from "axios";
 // });
 
 const API = axios.create({
-  baseURL: "https://university-backend.up.railway.app", 
+  baseURL: "https://university-backend.up.railway.app/api", 
 });
 
 API.interceptors.request.use((config) => {
