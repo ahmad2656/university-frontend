@@ -1,0 +1,285 @@
+$bg-card: #2e2431;
+$border-color: rgba(255, 255, 255, 0.07);
+$border-light: rgba(255, 255, 255, 0.04);
+$text-primary: #f0ecf4;
+$text-secondary: #9a8fa3;
+$error-color: #ef5350;
+$error-bg: rgba(239, 83, 80, 0.12);
+$error-border: rgba(239, 83, 80, 0.3);
+$border-radius: 16px;
+$border-radius-sm: 8px;
+$font-family: Inter, system-ui, sans-serif;
+$transition-speed: 0.2s;
+
+.page-container {
+  padding: 24px;
+  font-family: $font-family;
+  .page-header-layout {
+    display: flex;
+    justify-content: space-between;
+    @media screen and (max-width: 768px) {
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .vector-imges {
+      height: 5rem;
+      width: 5rem;
+      object-fit: cover;
+    }
+  }
+}
+
+.page-header {
+  margin-bottom: 24px;
+}
+
+.page-title {
+  color: $text-primary;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.page-subtitle {
+  color: $text-secondary;
+  font-size: 13px;
+  margin: 4px 0 0;
+}
+
+.page-loader {
+  color: $text-secondary;
+  text-align: center;
+  padding: 60px;
+  font-size: 14px;
+}
+
+.admin-table-card {
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  overflow: hidden;
+}
+
+.admin-table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 1fr 1fr 1fr;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid $border-color;
+  font-size: 12px;
+  color: $text-secondary;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.admin-table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 1fr 1fr 1fr;
+  padding: 14px 20px;
+  border-bottom: 1px solid $border-light;
+  align-items: center;
+  transition: background $transition-speed ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+}
+
+.admin-table-name {
+  font-size: 14px;
+  color: $text-primary;
+  font-weight: 500;
+}
+
+.admin-table-cell {
+  font-size: 13px;
+  color: $text-secondary;
+}
+
+.admin-delete-btn {
+  padding: 5px 12px;
+  background: $error-bg;
+  border: 1px solid $error-border;
+  border-radius: $border-radius-sm;
+  color: $error-color;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: $font-family;
+  transition: background $transition-speed ease;
+  width: fit-content;
+
+  &:hover {
+    background: rgba(239, 83, 80, 0.2);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.empty-state {
+  color: $text-secondary;
+  text-align: center;
+  padding: 40px;
+  font-size: 14px;
+}
+
+// table styles
+
+.teacher-admin-table-card {
+  background: #1e1e1e;
+  border-radius: 12px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.teacher-admin-table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 2fr 1fr;
+  padding: 12px 16px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.teacher-admin-table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 2fr 1fr;
+  padding: 14px 16px;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: background 0.2s;
+}
+
+.teacher-admin-table-row:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.teacher-admin-table-row:last-child {
+  border-bottom: none;
+}
+
+.teacher-admin-table-field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.teacher-admin-field-label {
+  display: none;
+}
+
+.teacher-admin-table-name {
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.teacher-admin-table-cell {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.teacher-admin-delete-btn {
+  background: rgba(244, 67, 54, 0.15);
+  color: #f44336;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: fit-content;
+}
+
+.teacher-admin-delete-btn:hover:not(:disabled) {
+  background: rgba(244, 67, 54, 0.25);
+}
+
+.teacher-admin-delete-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.teacher-admin-empty-state {
+  padding: 40px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .teacher-admin-table-card {
+    overflow-x: visible;
+  }
+
+  .teacher-admin-table-header {
+    display: none;
+  }
+
+  .teacher-admin-table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 8px 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .teacher-admin-table-field {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .teacher-admin-field-label {
+    display: none;
+  }
+
+  .teacher-admin-table-field:nth-child(1) {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .teacher-admin-table-field:nth-child(2) {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
+
+  .teacher-admin-table-field:nth-child(3) {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+  }
+
+  .teacher-admin-table-field:nth-child(4) {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+
+  .teacher-admin-table-field:nth-child(5) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+
+  .teacher-admin-table-name {
+    font-weight: 600;
+  }
+
+  .teacher-admin-delete-btn {
+    justify-self: start;
+    width: 100%;
+    text-align: center;
+  }
+}

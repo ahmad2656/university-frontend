@@ -1,0 +1,305 @@
+@use "StudentVariable" as *;
+@use "StudentCommon";
+
+$border-hover-soft: rgba(155, 114, 207, 0.25);
+$border-radius-sm: 10px;
+$border-radius-xs: 12px;
+$success-light: rgba(129, 199, 132, 0.06);
+$success-border-light: rgba(129, 199, 132, 0.15);
+
+.assign-success {
+  background: $success-bg;
+  border: 1px solid $success-border;
+  color: $success-color;
+  padding: 12px 16px;
+  border-radius: $border-radius-sm;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.assign-error {
+  background: $error-bg;
+  border: 1px solid $error-border;
+  color: $error-color;
+  padding: 12px 16px;
+  border-radius: $border-radius-sm;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.assignment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.assignment-card {
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: 14px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color $transition-speed ease;
+
+  &:hover {
+    border-color: $border-hover-soft;
+  }
+}
+
+.assignment-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  @media only screen and (max-width: 1200px) {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.assignment-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.assignment-icon {
+  color: $accent-color;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.assignment-title {
+  color: $text-primary;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.assignment-desc {
+  color: $text-secondary;
+  font-size: 12px;
+  margin: 0 0 4px;
+}
+
+.assignment-subject {
+  color: $accent-color;
+  font-size: 12px;
+  margin: 0 0 2px;
+}
+
+.assignment-due {
+  color: $text-secondary;
+  font-size: 12px;
+  margin: 0 0 2px;
+}
+
+.assignment-marks {
+  color: $text-secondary;
+  font-size: 11px;
+  margin: 0;
+}
+
+.assignment-status {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  @media only screen and (max-width: 1200px) {
+    position: relative;
+    left: 2rem;
+  }
+}
+
+.submission-info {
+  background: $success-light;
+  border: 1px solid $success-border-light;
+  border-radius: $border-radius-sm;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.submission-info-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.submission-info-label {
+  font-size: 12px;
+  color: $text-secondary;
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.submission-info-value {
+  font-size: 12px;
+  color: $text-primary;
+}
+
+.submission-files {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.submission-file-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.submission-file-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: $text-secondary;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.assignment-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.assignment-submit-btn {
+  padding: 9px 20px;
+  background: $accent-color;
+  border: none;
+  border-radius: $border-radius-sm;
+  color: $text-primary;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: $font-family;
+  transition: opacity $transition-speed ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.submit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: $border-radius-xs;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.submit-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.submit-label {
+  font-size: 12px;
+  color: $text-secondary;
+}
+
+.submit-textarea {
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid $border-color;
+  border-radius: $border-radius-sm;
+  color: $text-primary;
+  font-size: 13px;
+  outline: none;
+  font-family: $font-family;
+  resize: vertical;
+
+  &:focus {
+    border-color: rgba($accent-color, 0.4);
+  }
+}
+
+.submit-file-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: $border-radius-sm;
+  color: $text-secondary;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all $transition-speed ease;
+  width: fit-content;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:hover {
+    border-color: rgba($accent-color, 0.4);
+    color: $text-primary;
+  }
+}
+
+.selected-files {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.selected-file-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: $accent-color;
+  background: rgba($accent-color, 0.1);
+  border: 1px solid rgba($accent-color, 0.25);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.submit-form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.submit-cancel-btn {
+  padding: 9px 16px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: $border-radius-sm;
+  color: $text-secondary;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: $font-family;
+  transition: background $transition-speed ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+#assignment-vector {
+  height: auto;
+  width: 3.5rem;
+  object-fit: contain;
+  position: relative;
+  top: 0.8rem;
+}

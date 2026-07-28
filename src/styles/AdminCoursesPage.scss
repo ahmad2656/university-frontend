@@ -1,0 +1,64 @@
+@use "variables" as *;
+@use "common";
+
+.ac-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.ac-form-card {
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ac-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.ac-courses-list {
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  padding: 24px;
+}
+
+.ac-list-title {
+  color: $text-primary;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.ac-course-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 12px 0;
+  border-bottom: 1px solid $border-light;
+}
+
+@media (max-width: 1200px) {
+  .ac-layout {
+    grid-template-columns: 1fr;
+  }
+  .ac-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+#book-vector {
+  height: auto;
+  width: 5rem;
+  object-fit: contain;
+  position: relative;
+  top: 0.8rem;
+}

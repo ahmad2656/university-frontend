@@ -1,0 +1,66 @@
+@use "variables" as *;
+@use "common";
+
+@media (max-width: 1050px) {
+  .admin-table-card {
+    overflow-x: visible;
+
+    .admin-table-header {
+      display: none;
+    }
+
+    .admin-table-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 8px 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+
+      .admin-table-name {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        font-weight: 600;
+      }
+
+      .admin-table-cell:nth-of-type(1) {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+      }
+
+      .admin-table-cell:nth-of-type(2) {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+      }
+
+      .admin-table-cell:nth-of-type(3) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+      }
+
+      .admin-table-cell:nth-of-type(4) {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+      }
+
+      .admin-delete-btn {
+        grid-column: 3 / 4;
+        grid-row: 2 / 3;
+        justify-self: start;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+
+#fee-vector {
+  height: auto;
+  width: 4rem;
+  object-fit: contain;
+  position: relative;
+  top: 0.8rem;
+}

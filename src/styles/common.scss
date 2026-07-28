@@ -1,0 +1,189 @@
+@use "variables" as *;
+
+.page-container {
+  padding: 24px;
+  font-family: $font-family;
+}
+
+.page-header {
+  margin-bottom: 24px;
+}
+
+.page-title {
+  color: $text-primary;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.page-subtitle {
+  color: $text-secondary;
+  font-size: 13px;
+  margin: 4px 0 0;
+}
+
+.page-loader {
+  color: $text-secondary;
+  text-align: center;
+  padding: 60px;
+  font-size: 14px;
+}
+
+.ta-success {
+  background: rgba(129, 199, 132, 0.12);
+  border: 1px solid rgba(129, 199, 132, 0.3);
+  color: #81c784;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.ta-error {
+  background: $error-bg;
+  border: 1px solid $error-border;
+  color: $error-color;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.ta-control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ta-label {
+  color: $text-secondary;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.ta-select {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid $border-color;
+  border-radius: 10px;
+  color: $text-primary;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  font-family: $font-family;
+  transition: border-color $transition-speed ease;
+
+  &:focus {
+    border-color: rgba(155, 114, 207, 0.5);
+  }
+
+  option {
+    background: $bg-card;
+    color: $text-primary;
+  }
+}
+
+.ta-submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #9b72cf;
+  border: none;
+  border-radius: 10px;
+  color: $text-primary;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: $font-family;
+  transition: opacity $transition-speed ease;
+
+  &:hover:not(:disabled) {
+    opacity: 0.9;
+  }
+
+  &:disabled {
+    background: rgba(155, 114, 207, 0.5);
+    cursor: not-allowed;
+  }
+}
+
+.ac-form-title {
+  color: $text-primary;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.admin-table-card {
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  overflow: hidden;
+}
+
+.admin-table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 1fr 1fr 1fr;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid $border-color;
+  font-size: 12px;
+  color: $text-secondary;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.admin-table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 1fr 1fr 1fr;
+  padding: 14px 20px;
+  border-bottom: 1px solid $border-light;
+  align-items: center;
+  transition: background $transition-speed ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+}
+
+.admin-table-name {
+  font-size: 14px;
+  color: $text-primary;
+  font-weight: 500;
+}
+
+.admin-table-cell {
+  font-size: 13px;
+  color: $text-secondary;
+}
+
+.admin-delete-btn {
+  padding: 5px 12px;
+  background: $error-bg;
+  border: 1px solid $error-border;
+  border-radius: $border-radius-sm;
+  color: $error-color;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: $font-family;
+  transition: background $transition-speed ease;
+  width: fit-content;
+
+  &:hover {
+    background: rgba(239, 83, 80, 0.2);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.empty-state {
+  color: $text-secondary;
+  text-align: center;
+  padding: 40px;
+  font-size: 14px;
+}

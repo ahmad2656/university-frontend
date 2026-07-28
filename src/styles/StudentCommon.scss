@@ -1,0 +1,44 @@
+@use "StudentVariable" as *;
+
+.page-container {
+  padding: 24px;
+  font-family: $font-family;
+}
+
+.page-header {
+  margin-bottom: 24px;
+}
+
+.headings {
+  color: $text-primary;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.page-subtitle {
+  color: $text-secondary;
+  font-size: 13px;
+  margin: 4px 0 0;
+}
+
+.page-loader {
+  color: $text-secondary;
+  text-align: center;
+  padding: 60px;
+  font-size: 14px;
+}
+
+.page-error {
+  color: $error-color;
+  text-align: center;
+  padding: 60px;
+  font-size: 14px;
+}
+
+.empty-state {
+  color: $text-secondary;
+  text-align: center;
+  padding: 60px;
+  font-size: 14px;
+}

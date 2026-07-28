@@ -1,0 +1,55 @@
+@use "TeacherVariable" as *;
+@use "TeacherCommon";
+
+.ta-controls {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.ta-controls .ta-control-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.ta-students-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.ta-student-row {
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ta-status-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.ta-status-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all $transition-speed ease;
+  font-family: $font-family;
+}
+
+ #attendance-vector {
+    height: auto;
+    width: 3.5rem;
+    object-fit: contain;
+  }

@@ -1,0 +1,154 @@
+@use "AuthVariable" as *;
+
+.auth-page {
+  min-height: 100vh;
+  background: $primary-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-family;
+  padding: 24px;
+}
+
+.auth-card {
+  background: $card-bg;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-lg;
+  padding: 40px 36px;
+  width: 100%;
+}
+
+.auth-logo {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.auth-logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $accent-color;
+  margin-bottom: 8px;
+}
+
+.auth-title {
+  color: $text-primary;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.auth-subtitle {
+  color: $text-secondary;
+  font-size: 13px;
+  margin: 4px 0 0;
+}
+
+.auth-error {
+  background: $error-bg;
+  border: 1px solid $error-border;
+  color: $error-color;
+  padding: 10px 14px;
+  border-radius: $border-radius;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.auth-success {
+  background: $success-bg;
+  border: 1px solid $success-border;
+  color: $success-color;
+  padding: 10px 14px;
+  border-radius: $border-radius;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  color: $text-secondary;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  background: $input-bg;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  color: $text-primary;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  font-family: $font-family;
+  transition: all $transition-speed ease;
+
+  &::placeholder {
+    color: $text-secondary;
+  }
+
+  &:focus {
+    border-color: $border-focus;
+  }
+}
+
+.form-select {
+  appearance: none;
+  cursor: pointer;
+
+  option {
+    background: $card-bg;
+    color: $text-primary;
+  }
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 12px;
+  background: $accent-color;
+  border: none;
+  border-radius: $border-radius;
+  color: $text-primary;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+  font-family: $font-family;
+  transition: opacity $transition-speed ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &.auth-btn-disabled {
+    background: rgba($accent-color, 0.5);
+    cursor: not-allowed;
+  }
+}
+
+.auth-footer {
+  color: $text-secondary;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.auth-link {
+  color: $accent-color;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

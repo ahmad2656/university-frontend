@@ -1,0 +1,80 @@
+.widget-card {
+  background: #2e2431;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.widget-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #f0ecf4;
+}
+
+.widget-badge {
+  font-size: 11px;
+  color: #9a8fa3;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+
+.notice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.notice-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.notice-emoji {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.notice-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.notice-title {
+  font-size: 13px;
+  color: #f0ecf4;
+  font-weight: 500;
+}
+
+.notice-date {
+  font-size: 11px;
+  color: #9a8fa3;
+}
+
+.notice-urgent {
+  font-size: 10px;
+  color: #ef5350;
+  background: rgba(239, 83, 80, 0.12);
+  border: 1px solid rgba(239, 83, 80, 0.3);
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-weight: 600;
+  flex-shrink: 0;
+}

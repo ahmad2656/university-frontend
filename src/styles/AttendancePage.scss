@@ -1,0 +1,100 @@
+@use "StudentVariable" as *;
+@use "StudentCommon";
+
+.att-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.att-summary-card {
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.att-summary-label {
+  font-size: 12px;
+  color: $text-secondary;
+}
+
+.att-summary-value {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.att-log-card {
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  padding: 24px;
+}
+
+.att-log-title {
+  color: $text-primary;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.att-log-table {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.att-log-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  padding: 10px 14px;
+  font-size: 12px;
+  color: $text-secondary;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid $border-color;
+  margin-bottom: 4px;
+}
+
+.att-log-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  padding: 12px 14px;
+  border-radius: 8px;
+  align-items: center;
+  transition: background $transition-speed;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+}
+
+.att-log-date {
+  font-size: 13px;
+  color: $text-secondary;
+}
+
+.att-log-subject {
+  font-size: 13px;
+  color: $text-primary;
+}
+
+.att-log-status {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.att-log-empty {
+  color: $text-secondary;
+  text-align: center;
+  padding: 40px;
+  font-size: 14px;
+}

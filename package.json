@@ -1,0 +1,82 @@
+{
+  "name": "uniportal",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@hookform/resolvers": "^5.4.0",
+    "@mui/icons-material": "^5.15.20",
+    "@mui/material": "^5.15.20",
+    "@mui/x-charts": "^7.23.6",
+    "@mui/x-data-grid": "^7.23.6",
+    "@react-spring/three": "^10.1.1",
+    "@react-spring/web": "^10.1.1",
+    "@tanstack/react-query": "^5.101.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^13.5.0",
+    "aos": "^2.3.4",
+    "axios": "^1.18.1",
+    "bootstrap": "^5.3.8",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.4.0",
+    "framer-motion": "^12.40.0",
+    "lucide-react": "^1.25.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.80.0",
+    "react-hot-toast": "^2.6.0",
+    "react-icons": "^5.6.0",
+    "react-router-dom": "^6.28.0",
+    "react-scripts": "5.0.1",
+    "react-scroll": "^1.9.3",
+    "react-spring": "^10.0.4",
+    "react-transition-group": "^4.4.5",
+    "recharts": "^3.8.1",
+    "sass": "^1.101.0",
+    "swiper": "^12.2.0",
+    "web-vitals": "^2.1.4",
+    "yup": "^1.7.1",
+    "zustand": "^5.0.14"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "ajv": "^8.12.0",
+    "ajv-keywords": "^5.1.0"
+  },
+  "overrides": {
+    "react-transition-group": "^4.4.5"
+  },
+  "resolutions": {
+    "react-transition-group": "^4.4.5"
+  }
+}
