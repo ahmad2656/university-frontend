@@ -81,7 +81,7 @@ export default function ProfilePage() {
             <div className="profile-avatar">
               {profile.photo ? (
                 <img
-                  src={`http://localhost:5000/${profile.photo}`}
+                  src={profile.photo}
                   alt="profile"
                   className="profile-img"
                 />
