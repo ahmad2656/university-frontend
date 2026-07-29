@@ -27,8 +27,6 @@ import {
 import "../../styles/TeacherAssignmentsPage.scss";
 import studentvectorimg from "../../assets/png/assignment.png";
 
-const FILE_SERVER_URL = "http://localhost:5000";
-
 function FileIcon({ name, size = 16 }) {
   const ext = name?.split(".").pop()?.toLowerCase() || "";
   const imageExts = ["jpg", "jpeg", "png", "gif", "svg"];
@@ -63,10 +61,13 @@ export default function TeacherAssignmentsPage() {
   useEffect(() => {
     Promise.all([getTeacherCourses(), getTeacherAssignments()])
       .then(([coursesRes, assignmentsRes]) => {
-        setCourses(coursesRes.data.data);
-        setAssignments(assignmentsRes.data.data);
+        setCourses(coursesRes?.data?.data || []);
+        setAssignments(assignmentsRes?.data?.data || []);
       })
-      .catch(console.error)
+      .catch((err) => {
+        console.error("Error fetching data:", err);
+        setError("Failed to load data");
+      })
       .finally(() => setLoading(false));
   }, []);
 
@@ -79,7 +80,7 @@ export default function TeacherAssignmentsPage() {
     setSubmitting(true);
     try {
       const res = await createAssignment(form);
-      setAssignments((prev) => [res.data.data, ...prev]);
+      setAssignments((prev) => [res?.data?.data, ...prev]);
       setSuccess("Assignment created successfully!");
       setForm({
         title: "",
@@ -90,7 +91,7 @@ export default function TeacherAssignmentsPage() {
       });
       setTimeout(() => setSuccess(""), 3000);
     } catch (err) {
-      setError(err.response?.data?.message || "Failed to create assignment");
+      setError(err?.response?.data?.message || "Failed to create assignment");
     } finally {
       setSubmitting(false);
     }
@@ -162,7 +163,11 @@ export default function TeacherAssignmentsPage() {
             </p>
           </div>
           <div>
-            <img src={studentvectorimg} id="assignment-vector" alt="" />
+            <img
+              src={studentvectorimg}
+              id="assignment-vector"
+              alt="Assignment illustration"
+            />
           </div>
         </div>
       </div>
@@ -176,12 +181,12 @@ export default function TeacherAssignmentsPage() {
             <div className="file-modal-header">
               <div className="file-modal-header-left">
                 <span className="file-modal-icon">
-                  <FileIcon name={selectedFile.name} size={26} />
+                  <FileIcon name={selectedFile?.name} size={26} />
                 </span>
                 <div>
-                  <h3>{selectedFile.name}</h3>
+                  <h3>{selectedFile?.name}</h3>
                   <span className="file-modal-size">
-                    {formatFileSize(selectedFile.size)}
+                    {formatFileSize(selectedFile?.size)}
                   </span>
                 </div>
               </div>
@@ -192,15 +197,15 @@ export default function TeacherAssignmentsPage() {
             <div className="file-modal-body">
               {selectedFile?.type === "pdf" ? (
                 <embed
-                  src={`${FILE_SERVER_URL}/${selectedFile.url}`}
+                  src={selectedFile?.url}
                   type="application/pdf"
                   className="file-pdf-embed"
                 />
               ) : selectedFile?.type === "image" ? (
                 <div className="file-image-preview">
                   <img
-                    src={`${FILE_SERVER_URL}/${selectedFile.url}`}
-                    alt={selectedFile.name}
+                    src={selectedFile?.url}
+                    alt={selectedFile?.name}
                     className="file-preview-img"
                   />
                 </div>
@@ -212,7 +217,7 @@ export default function TeacherAssignmentsPage() {
                   <p className="file-preview-name">{selectedFile?.name}</p>
                   <div className="file-preview-actions">
                     <a
-                      href={`${FILE_SERVER_URL}/${selectedFile?.url}`}
+                      href={selectedFile?.url}
                       download
                       className="file-download-btn"
                     >
@@ -221,12 +226,7 @@ export default function TeacherAssignmentsPage() {
                     </a>
                     <button
                       className="file-open-btn"
-                      onClick={() =>
-                        window.open(
-                          `${FILE_SERVER_URL}/${selectedFile?.url}`,
-                          "_blank",
-                        )
-                      }
+                      onClick={() => window.open(selectedFile?.url, "_blank")}
                     >
                       <ExternalLink size={15} />
                       Open in New Tab
@@ -235,10 +235,10 @@ export default function TeacherAssignmentsPage() {
                 </div>
               )}
             </div>
-            {selectedFile.type === "pdf" && (
+            {selectedFile?.type === "pdf" && (
               <div className="file-modal-footer">
                 <a
-                  href={`${FILE_SERVER_URL}/${selectedFile.url}`}
+                  href={selectedFile?.url}
                   download
                   className="file-download-btn"
                 >
@@ -247,12 +247,7 @@ export default function TeacherAssignmentsPage() {
                 </a>
                 <button
                   className="file-open-btn"
-                  onClick={() =>
-                    window.open(
-                      `${FILE_SERVER_URL}/${selectedFile.url}`,
-                      "_blank",
-                    )
-                  }
+                  onClick={() => window.open(selectedFile?.url, "_blank")}
                 >
                   <ExternalLink size={15} />
                   Open in New Tab
@@ -382,14 +377,15 @@ export default function TeacherAssignmentsPage() {
                           <span className="accordion-due">
                             <Calendar size={12} />
                             Due:{" "}
-                            {new Date(assignment.due_date).toLocaleDateString(
-                              "en-US",
-                              {
-                                year: "numeric",
-                                month: "short",
-                                day: "numeric",
-                              },
-                            )}
+                            {assignment.due_date
+                              ? new Date(
+                                  assignment.due_date,
+                                ).toLocaleDateString("en-US", {
+                                  year: "numeric",
+                                  month: "short",
+                                  day: "numeric",
+                                })
+                              : "No due date"}
                           </span>
                           <span className="accordion-submissions-count">
                             <StatusIcon status="submitted" size={12} />
@@ -461,9 +457,11 @@ export default function TeacherAssignmentsPage() {
                                 <div className="submission-meta">
                                   <span className="submission-time">
                                     <Clock size={11} />
-                                    {new Date(
-                                      sub.submitted_at,
-                                    ).toLocaleString()}
+                                    {sub.submitted_at
+                                      ? new Date(
+                                          sub.submitted_at,
+                                        ).toLocaleString()
+                                      : "No date"}
                                   </span>
                                 </div>
 
