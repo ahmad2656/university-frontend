@@ -88,7 +88,12 @@ export default function AssignmentPage() {
           </div>
 
           <div>
-            <img src={assignmentvector} className="vector-imges" id="assignment-vector" alt="" />
+            <img
+              src={assignmentvector}
+              className="vector-imges"
+              id="assignment-vector"
+              alt=""
+            />
           </div>
         </div>
       </div>
@@ -234,16 +239,16 @@ export default function AssignmentPage() {
 
                       <div className="submit-form-group">
                         <label className="submit-label">
-                          Attach Files — PDF ya Image (dono bhi ho sakte hain)
+                          Attach Files — PDF, Word, Excel, PowerPoint ya Image
                         </label>
                         <label className="submit-file-label">
                           <Paperclip size={14} />
                           {submitForm.files.length > 0
                             ? submitForm.files.map((f) => f.name).join(", ")
-                            : "PDF ya Image choose karo"}
+                            : "File choose karo"}
                           <input
                             type="file"
-                            accept=".pdf,image/*"
+                            accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,image/*"
                             multiple
                             style={{ display: "none" }}
                             onChange={handleFileChange}
